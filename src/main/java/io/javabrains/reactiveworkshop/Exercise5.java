@@ -10,14 +10,14 @@ public class Exercise5 {
 
 	public static void main(String[] args) throws IOException {
 
-		// Use ReactiveSources.intNumberMono() and ReactiveSources.userMono()
+		// Use ReactiveSources.intNumbersFlux() and ReactiveSources.userFlux()
 
 		// Subscribe to a flux using the error and completion hooks
 		ReactiveSources.intNumbersFlux().subscribe(x -> System.out.println(x),
 				error -> System.out.println(error.getLocalizedMessage()), () -> System.out.println("Completed"));
 
 		// Subscribe to a flux using an implementation of BaseSubscriber
-		ReactiveSources.intNumbersFlux().subscribe(new MySubscriber<>());
+		ReactiveSources.userFlux().subscribe(new MySubscriber<>());
 		
 		System.out.println("Press a key to end");
 		System.in.read();
